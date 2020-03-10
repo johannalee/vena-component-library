@@ -2,6 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withInfo } from "@storybook/addon-info";
+import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
 import Button, { ButtonComponent } from "./Button";
@@ -18,7 +19,31 @@ const webTheme = createMuiTheme({
   venaTheme: "web"
 });
 
+const buttonWithKnobs = theme => (
+  <MuiThemeProvider theme={theme}>
+    <Button
+      color={select(
+        "color",
+        {
+          Primary: "primary",
+          Secondary: "secondary",
+          Confirmation: "confirmation",
+          Danger: "danger"
+        },
+        "primary"
+      )}
+      disabled={boolean("disabled", false)}
+      isLoading={boolean("isLoading", false)}
+      iconClass={text("iconClass", "")}
+      onClick={actions.onClick}
+    >
+      {text("label", "Button")}
+    </Button>
+  </MuiThemeProvider>
+);
+
 storiesOf("Button", module)
+  .addDecorator(withKnobs)
   .add(
     "Default",
     withInfo({
@@ -195,7 +220,6 @@ storiesOf("Button", module)
           <Button
             color="primary"
             isLoading={true}
-            iconClass="fa fa-plus"
             style={{ marginRight: "10px" }}
             onClick={actions.onClick}
           >
@@ -205,7 +229,6 @@ storiesOf("Button", module)
           <Button
             color="secondary"
             isLoading={true}
-            iconClass="fa fa-cloud-upload"
             style={{ marginRight: "10px" }}
             onClick={actions.onClick}
           >
@@ -215,7 +238,6 @@ storiesOf("Button", module)
           <Button
             color="confirmation"
             isLoading={true}
-            iconClass="fa fa-plus"
             style={{ marginRight: "10px" }}
             onClick={actions.onClick}
           >
@@ -225,7 +247,6 @@ storiesOf("Button", module)
           <Button
             color="danger"
             isLoading={true}
-            iconClass="fa fa-trash"
             style={{ marginRight: "10px" }}
             onClick={actions.onClick}
           >
@@ -239,7 +260,6 @@ storiesOf("Button", module)
           <Button
             color="primary"
             isLoading={true}
-            iconClass="fa fa-plus"
             style={{ marginRight: "10px" }}
             onClick={actions.onClick}
           >
@@ -249,7 +269,6 @@ storiesOf("Button", module)
           <Button
             color="secondary"
             isLoading={true}
-            iconClass="fa fa-cloud-upload"
             style={{ marginRight: "10px" }}
             onClick={actions.onClick}
           >
@@ -259,7 +278,6 @@ storiesOf("Button", module)
           <Button
             color="confirmation"
             isLoading={true}
-            iconClass="fa fa-plus"
             style={{ marginRight: "10px" }}
             onClick={actions.onClick}
           >
@@ -269,7 +287,6 @@ storiesOf("Button", module)
           <Button
             color="danger"
             isLoading={true}
-            iconClass="fa fa-trash"
             style={{ marginRight: "10px" }}
             onClick={actions.onClick}
           >
@@ -278,4 +295,6 @@ storiesOf("Button", module)
         </div>
       </MuiThemeProvider>
     </div>
-  ));
+  ))
+  .add("Web with knobs", () => buttonWithKnobs(webTheme))
+  .add("Addin with knobs", () => buttonWithKnobs(addinTheme));
