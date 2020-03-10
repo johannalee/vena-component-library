@@ -27,6 +27,7 @@ storiesOf("Button", module)
       propTablesExclude: [Button]
     })(() => (
       <div>
+        <h1>Welcome to Kardia!</h1>
         <MuiThemeProvider theme={webTheme}>
           <div>
             <h2>Standard Button (Web)</h2>
