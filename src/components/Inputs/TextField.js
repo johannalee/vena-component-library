@@ -5,22 +5,110 @@ import MuiTextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import {
   BLUE_50,
+  BLUE_70,
   GRAY_30,
   GRAY_50,
+  GRAY_70,
   GRAY_90,
   RED_50,
+  RED_70,
   BLACK,
-  WHITE
+  WHITE,
+  GREEN_70
 } from "../../styles/colors";
 
+// TODO for web-client as per the mockup (https://projects.invisionapp.com/share/7VVOHYTJD6P#/screens/389652810_Fields): 
+// 1. Add error & success state icons
+// 2. Add right-side link
+//
+// TODO for add-in:
+// 1. Get a mockup of a success state and add it
+
+const webStyles = {
+  formControlRoot: {
+    width: "340px"
+  },
+  helperTextRoot: {
+    color: BLACK,
+    
+    "&$helperTextError": {
+      color: RED_70
+    }
+  },
+  inputRoot: {
+    height: "36px",
+    borderRadius: "3px",
+
+    "&:hover": {
+      border: `1px solid ${GRAY_70}`
+    },
+    "&$inputError": {
+      border: `1px solid ${RED_70}`
+    },
+    "&$inputFocused": {
+      border: `1px solid ${BLUE_70}`
+    },
+  },
+  inputDisabled: {
+    "&:hover": {
+      cursor: "not-allowed"
+    }
+  },
+  inputSuccess: {
+    border: `1px solid ${GREEN_70}`,
+
+    "&:hover": {
+      border: `1px solid ${GREEN_70}`
+    },
+    "&$inputFocused": {
+      border: `1px solid ${BLUE_70}`
+    }
+  },
+  inputAdornment: {
+    "& p": {
+      color: BLACK
+    }
+  },
+  labelRoot: {
+    fontWeight: "bold"
+  }
+};
+
+const addinStyles = {
+  formControlRoot: {
+    width: "320px"
+  },
+  helperTextRoot: {
+    "&$helperTextError": {
+      color: RED_50
+    }
+  },
+  inputRoot: {
+    height: "32px",
+
+    "&:hover": {
+      border: `1px solid ${GRAY_90}`
+    },
+    "&$inputError": {
+      border: `1px solid ${RED_50}`
+    },
+    "&$inputFocused": {
+      border: `1px solid ${BLUE_50}`
+    },
+  },
+  inputSuccess: {} // Add success state here
+}
+
 const styles = theme => {
+  const projectTheme = theme.venaTheme === "addin" ? addinStyles : webStyles;
+  
   return {
     formControlRoot: {
-      width: "320px",
-
       "&$formControlFullWidth": {
         width: "100%"
-      }
+      },
+
+      ...projectTheme.formControlRoot
     },
     formControlFullWidth: {},
     helperTextRoot: {
@@ -28,9 +116,7 @@ const styles = theme => {
       fontSize: "12px",
       fontStyle: "italic",
 
-      "&$helperTextError": {
-        color: RED_50
-      }
+      ...projectTheme.helperTextRoot
     },
     helperTextError: {},
     inputInput: {
@@ -42,31 +128,25 @@ const styles = theme => {
       boxSizing: "border-box",
       color: BLACK,
       fontSize: "14px",
-      height: "32px",
       paddingLeft: "8px",
       paddingRight: "8px",
 
       "$labelRoot + &": {
         marginTop: "8px"
       },
-      "&:hover": {
-        border: `1px solid ${GRAY_90}`
-      },
       "&$inputDisabled": {
         border: `1px solid ${GRAY_50}`,
         backgroundColor: GRAY_30
       },
-      "&$inputError": {
-        border: `1px solid ${RED_50}`
-      },
-      "&$inputFocused": {
-        border: `1px solid ${BLUE_50}`
-      }
+
+      ...projectTheme.inputRoot
     },
-    inputDisabled: {},
+    inputDisabled: { ...projectTheme.inputDisabled },
     inputError: {},
+    inputSuccess: { ...projectTheme.inputSuccess },
     inputFormControl: {},
     inputFocused: {},
+    inputAdornment: { ...projectTheme.inputAdornment },
     labelRoot: {
       color: BLACK,
       fontSize: "14px",
@@ -82,7 +162,9 @@ const styles = theme => {
       },
       "&$labelFocused": {
         color: BLACK
-      }
+      },
+
+      ...projectTheme.labelRoot
     },
     labelDisabled: {},
     labelError: {},
@@ -95,6 +177,7 @@ function TextField({
   disabled,
   endAdornment,
   error,
+  success,    
   fullWidth,
   helperText,
   id,
@@ -130,7 +213,7 @@ function TextField({
       }}
       InputProps={{
         classes: {
-          root: classes.inputRoot,
+          root: success ? `${classes.inputSuccess} ${classes.inputRoot}` : classes.inputRoot,
           input: classes.inputInput,
           disabled: classes.inputDisabled,
           error: classes.inputError,
@@ -139,7 +222,7 @@ function TextField({
         },
         disableUnderline: true,
         endAdornment: endAdornment ? (
-          <InputAdornment position="end">{endAdornment}</InputAdornment>
+          <InputAdornment position="end" className={classes.inputAdornment}>{endAdornment}</InputAdornment>
         ) : null,
         readOnly: readOnly
       }}
@@ -174,6 +257,8 @@ TextField.propTypes = {
   error: PropTypes.bool,
   /**  End InputAdornment for this component */
   endAdornment: PropTypes.node,
+  /** If true, the field will be displayed in a success state */
+  success: PropTypes.bool,
   /** If true, the input will take up the full width of its container. */
   fullWidth: PropTypes.bool,
   /** The helper text content. */

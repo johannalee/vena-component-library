@@ -227,7 +227,7 @@ storiesOf("Select", module).add(
     <div>
       <MuiThemeProvider theme={addinTheme}>
         <div>
-          <h2>Standard Select</h2>
+          <h2>Select (Addin)</h2>
           <StyledDemo />
         </div>
       </MuiThemeProvider>
