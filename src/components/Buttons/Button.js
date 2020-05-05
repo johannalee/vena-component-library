@@ -16,7 +16,7 @@ import {
   RED_50,
   RED_70,
   BLACK,
-  WHITE
+  // WHITE
 } from "../../styles/colors";
 
 const webStyles = {
