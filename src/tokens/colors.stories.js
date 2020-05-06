@@ -1,5 +1,4 @@
 import React from "react";
-import capitalize from 'lodash/capitalize';
 import { storiesOf } from "@storybook/react";
 import { withStyles } from "@material-ui/core/styles";
 import * as colors from "./colors.json";
@@ -48,7 +47,7 @@ function ColorRowUnstyled({ classes, weight, colorCellValues }) {
       {colorCellValues.map(cell => (
         <ColorCell
           key={`${cell.color}_${weight}`}
-          backgroundColor={colors[`${cell.color}_${weight}`]}
+          backgroundColor={cell.color}
           color={cell.labelColor}
         />
       ))}
@@ -62,8 +61,6 @@ const ColorRow = withStyles(() => ({
     marginTop: "10px"
   }
 }))(ColorRowUnstyled);
-
-const colorsWithDeg = colors.filter(color => typeof color !== 'string');
 
 class ColorsDemo extends React.Component {
   render() {
@@ -85,61 +82,64 @@ class ColorsDemo extends React.Component {
 
         <div className={classes.rowContainer} style={{ marginTop: "32px" }}>
           <ColorHeader />
-          { Object.keys(colorsWithDeg).map(key => <ColorHeader label={capitalize(key)} key={key} />) }
+          <ColorHeader label="Gray" />
+          <ColorHeader label="Green" />
+          <ColorHeader label="Yellow" />
+          <ColorHeader label="Red" />
+          <ColorHeader label="Blue" />
         </div>
 
         <ColorRow
-          weight={10}
+          weight="ten"
           colorCellValues={[
-            { color: "GRAY", labelColor: colors.BLACK },
-            { color: "GREEN", labelColor: colors.BLACK },
-            { color: "YELLOW", labelColor: colors.BLACK },
-            { color: "RED", labelColor: colors.BLACK },
-            { color: "BLUE", labelColor: colors.BLACK }
+            { color: colors.GRAY.ten, labelColor: colors.BLACK },
+            { color: colors.GREEN.ten, labelColor: colors.BLACK },
+            { color: colors.YELLOW.ten, labelColor: colors.BLACK },
+            { color: colors.RED.ten, labelColor: colors.BLACK },
+            { color: colors.BLUE.ten, labelColor: colors.BLACK }
+          ]}
+        />
+        <ColorRow
+          weight="thirty"
+          colorCellValues={[
+            { color: colors.GRAY.thirty, labelColor: colors.BLACK },
+            { color: colors.GREEN.thirty, labelColor: colors.BLACK },
+            { color: colors.YELLOW.thirty, labelColor: colors.BLACK },
+            { color: colors.RED.thirty, labelColor: colors.BLACK },
+            { color: colors.BLUE.thirty, labelColor: colors.BLACK }
           ]}
         />
 
         <ColorRow
-          weight={30}
+          weight="fifty"
           colorCellValues={[
-            { color: "GRAY", labelColor: colors.BLACK },
-            { color: "GREEN", labelColor: colors.BLACK },
-            { color: "YELLOW", labelColor: colors.BLACK },
-            { color: "RED", labelColor: colors.BLACK },
-            { color: "BLUE", labelColor: colors.BLACK }
+            { color: colors.GRAY.fifty, labelColor: colors.BLACK },
+            { color: colors.GREEN.fifty, labelColor: colors.BLACK },
+            { color: colors.YELLOW.fifty, labelColor: colors.BLACK },
+            { color: colors.RED.fifty, labelColor: colors.BLACK },
+            { color: colors.BLUE.fifty, labelColor: colors.BLACK }
           ]}
         />
 
         <ColorRow
-          weight={50}
+          weight="primary"
           colorCellValues={[
-            { color: "GRAY", labelColor: colors.BLACK },
-            { color: "GREEN", labelColor: colors.BLACK },
-            { color: "YELLOW", labelColor: colors.BLACK },
-            { color: "RED", labelColor: colors.BLACK },
-            { color: "BLUE", labelColor: colors.BLACK }
+            { color: colors.GRAY.primary, labelColor: colors.BLACK },
+            { color: colors.GREEN.primary, labelColor: colors.WHITE },
+            { color: colors.YELLOW.primary, labelColor: colors.BLACK },
+            { color: colors.RED.primary, labelColor: colors.WHITE },
+            { color: colors.BLUE.primary, labelColor: colors.WHITE }
           ]}
         />
 
         <ColorRow
-          weight={70}
+          weight="ninety"
           colorCellValues={[
-            { color: "GRAY", labelColor: colors.BLACK },
-            { color: "GREEN", labelColor: colors.WHITE },
-            { color: "YELLOW", labelColor: colors.BLACK },
-            { color: "RED", labelColor: colors.WHITE },
-            { color: "BLUE", labelColor: colors.WHITE }
-          ]}
-        />
-
-        <ColorRow
-          weight={90}
-          colorCellValues={[
-            { color: "GRAY", labelColor: colors.WHITE },
-            { color: "GREEN", labelColor: colors.WHITE },
-            { color: "YELLOW", labelColor: colors.WHITE },
-            { color: "RED", labelColor: colors.WHITE },
-            { color: "BLUE", labelColor: colors.WHITE }
+            { color: colors.GRAY.ninety, labelColor: colors.WHITE  },
+            { color: colors.GREEN.ninety, labelColor: colors.WHITE  },
+            { color: colors.YELLOW.ninety, labelColor: colors.WHITE  },
+            { color: colors.RED.ninety, labelColor: colors.WHITE  },
+            { color: colors.BLUE.ninety, labelColor: colors.WHITE  }
           ]}
         />
 
@@ -158,57 +158,57 @@ class ColorsDemo extends React.Component {
         </div>
 
         <ColorRow
-          weight={10}
+          weight="ten"
           colorCellValues={[
-            { color: "PURPLE", labelColor: colors.BLACK },
-            { color: "ORANGE", labelColor: colors.BLACK },
-            { color: "TEAL", labelColor: colors.BLACK },
-            { color: "PINK", labelColor: colors.BLACK },
-            { color: "OLIVE", labelColor: colors.BLACK }
+            { color: colors.PURPLE.ten, labelColor: colors.BLACK },
+            { color: colors.ORANGE.ten, labelColor: colors.BLACK },
+            { color: colors.TEAL.ten, labelColor: colors.BLACK },
+            { color: colors.PINK.ten, labelColor: colors.BLACK },
+            { color: colors.OLIVE.ten, labelColor: colors.BLACK }
           ]}
         />
 
         <ColorRow
-          weight={30}
+          weight="thirty"
           colorCellValues={[
-            { color: "PURPLE", labelColor: colors.BLACK },
-            { color: "ORANGE", labelColor: colors.BLACK },
-            { color: "TEAL", labelColor: colors.BLACK },
-            { color: "PINK", labelColor: colors.BLACK },
-            { color: "OLIVE", labelColor: colors.BLACK }
+            { color: colors.PURPLE.thirty, labelColor: colors.BLACK },
+            { color: colors.ORANGE.thirty, labelColor: colors.BLACK },
+            { color: colors.TEAL.thirty, labelColor: colors.BLACK },
+            { color: colors.PINK.thirty, labelColor: colors.BLACK },
+            { color: colors.OLIVE.thirty, labelColor: colors.BLACK }
           ]}
         />
 
         <ColorRow
-          weight={50}
+          weight="primary"
           colorCellValues={[
-            { color: "PURPLE", labelColor: colors.WHITE },
-            { color: "ORANGE", labelColor: colors.BLACK },
-            { color: "TEAL", labelColor: colors.BLACK },
-            { color: "PINK", labelColor: colors.BLACK },
-            { color: "OLIVE", labelColor: colors.BLACK }
+            { color: colors.PURPLE.primary, labelColor: colors.WHITE },
+            { color: colors.ORANGE.primary, labelColor: colors.BLACK },
+            { color: colors.TEAL.primary, labelColor: colors.BLACK },
+            { color: colors.PINK.primary, labelColor: colors.BLACK },
+            { color: colors.OLIVE.primary, labelColor: colors.BLACK }
           ]}
         />
 
         <ColorRow
-          weight={70}
+          weight="seventy"
           colorCellValues={[
-            { color: "PURPLE", labelColor: colors.WHITE },
-            { color: "ORANGE", labelColor: colors.WHITE },
-            { color: "TEAL", labelColor: colors.WHITE },
-            { color: "PINK", labelColor: colors.WHITE },
-            { color: "OLIVE", labelColor: colors.WHITE }
+            { color: colors.PURPLE.seventy, labelColor: colors.WHITE },
+            { color: colors.ORANGE.seventy, labelColor: colors.WHITE },
+            { color: colors.TEAL.seventy, labelColor: colors.WHITE },
+            { color: colors.PINK.seventy, labelColor: colors.WHITE },
+            { color: colors.OLIVE.seventy, labelColor: colors.WHITE }
           ]}
         />
 
         <ColorRow
-          weight={90}
+          weight="ninety"
           colorCellValues={[
-            { color: "PURPLE", labelColor: colors.WHITE },
-            { color: "ORANGE", labelColor: colors.WHITE },
-            { color: "TEAL", labelColor: colors.WHITE },
-            { color: "PINK", labelColor: colors.WHITE },
-            { color: "OLIVE", labelColor: colors.WHITE }
+            { color: colors.PURPLE.ninety, labelColor: colors.WHITE },
+            { color: colors.ORANGE.ninety, labelColor: colors.WHITE },
+            { color: colors.TEAL.ninety, labelColor: colors.WHITE },
+            { color: colors.PINK.ninety, labelColor: colors.WHITE },
+            { color: colors.OLIVE.ninety, labelColor: colors.WHITE }
           ]}
         />
       </>

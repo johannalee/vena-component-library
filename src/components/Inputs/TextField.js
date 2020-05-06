@@ -4,18 +4,13 @@ import { withStyles } from "@material-ui/core/styles";
 import MuiTextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import {
-  BLUE_50,
-  BLUE_70,
-  GRAY_30,
-  GRAY_50,
-  GRAY_70,
-  GRAY_90,
-  RED_50,
-  RED_70,
+  BLUE,
+  GRAY,
+  RED,
   BLACK,
   WHITE,
-  GREEN_70
-} from "../../styles/colors";
+  GREEN
+} from "../../tokens/colors.json";
 
 // TODO for web-client as per the mockup (https://projects.invisionapp.com/share/7VVOHYTJD6P#/screens/389652810_Fields): 
 // 1. Add error & success state icons
@@ -32,7 +27,7 @@ const webStyles = {
     color: BLACK,
     
     "&$helperTextError": {
-      color: RED_70
+      color: RED.primary
     }
   },
   inputRoot: {
@@ -40,13 +35,13 @@ const webStyles = {
     borderRadius: "3px",
 
     "&:hover": {
-      border: `1px solid ${GRAY_70}`
+      border: `1px solid ${GRAY.primary}`
     },
     "&$inputError": {
-      border: `1px solid ${RED_70}`
+      border: `1px solid ${RED.primary}`
     },
     "&$inputFocused": {
-      border: `1px solid ${BLUE_70}`
+      border: `1px solid ${BLUE.primary}`
     },
   },
   inputDisabled: {
@@ -55,13 +50,13 @@ const webStyles = {
     }
   },
   inputSuccess: {
-    border: `1px solid ${GREEN_70}`,
+    border: `1px solid ${GREEN.primary}`,
 
     "&:hover": {
-      border: `1px solid ${GREEN_70}`
+      border: `1px solid ${GREEN.primary}`
     },
     "&$inputFocused": {
-      border: `1px solid ${BLUE_70}`
+      border: `1px solid ${BLUE.primary}`
     }
   },
   inputAdornment: {
@@ -80,20 +75,20 @@ const addinStyles = {
   },
   helperTextRoot: {
     "&$helperTextError": {
-      color: RED_50
+      color: RED.fifty
     }
   },
   inputRoot: {
     height: "32px",
 
     "&:hover": {
-      border: `1px solid ${GRAY_90}`
+      border: `1px solid ${GRAY.ninety}`
     },
     "&$inputError": {
-      border: `1px solid ${RED_50}`
+      border: `1px solid ${RED.fifty}`
     },
     "&$inputFocused": {
-      border: `1px solid ${BLUE_50}`
+      border: `1px solid ${BLUE.fifty}`
     },
   },
   inputSuccess: {} // Add success state here
@@ -112,7 +107,7 @@ const styles = theme => {
     },
     formControlFullWidth: {},
     helperTextRoot: {
-      color: GRAY_90,
+      color: GRAY.ninety,
       fontSize: "12px",
       fontStyle: "italic",
 
@@ -124,7 +119,7 @@ const styles = theme => {
     },
     inputRoot: {
       backgroundColor: WHITE,
-      border: `1px solid ${GRAY_50}`,
+      border: `1px solid ${GRAY.fifty}`,
       boxSizing: "border-box",
       color: BLACK,
       fontSize: "14px",
@@ -135,8 +130,8 @@ const styles = theme => {
         marginTop: "8px"
       },
       "&$inputDisabled": {
-        border: `1px solid ${GRAY_50}`,
-        backgroundColor: GRAY_30
+        border: `1px solid ${GRAY.fifty}`,
+        backgroundColor: GRAY.thirty
       },
 
       ...projectTheme.inputRoot

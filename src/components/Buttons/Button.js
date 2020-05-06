@@ -3,21 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import MuiButton from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {
-  GREEN_30,
-  GREEN_70,
-  GREEN_90,
-  BLUE_30,
-  BLUE_70,
-  BLUE_90,
-  GRAY_50,
-  GRAY_70,
-  RED_30,
-  RED_50,
-  RED_70,
-  BLACK,
-  // WHITE
-} from "../../styles/colors";
+import { WHITE, BLACK, RED, GRAY, GREEN, BLUE } from '../../tokens/colors.json';
 
 const webStyles = {
   root: {
@@ -53,71 +39,71 @@ const styles = theme => {
       ...(theme.venaTheme === "addin" ? addinStyles.root : webStyles.root)
     },
     primary: {
-      backgroundColor: BLUE_70,
+      backgroundColor: BLUE.primary,
 
       "&:hover": {
-        backgroundColor: BLUE_90
+        backgroundColor: BLUE.ninety,
       },
 
       "&:disabled": {
-        backgroundColor: BLUE_30,
+        backgroundColor: BLUE.thirty,
         color: WHITE
       },
 
       "&:disabled&:hover": {
-        backgroundColor: BLUE_30,
+        backgroundColor: BLUE.thirty,
         color: WHITE
       }
     },
     secondary: {
-      backgroundColor: GRAY_50,
+      backgroundColor: GRAY.fifty,
       color: BLACK,
 
       "&:hover": {
-        backgroundColor: GRAY_70
+        backgroundColor: GRAY.primary
       },
 
       "&:disabled": {
-        backgroundColor: GRAY_50,
-        color: GRAY_70
+        backgroundColor: GRAY.fifty,
+        color: GRAY.primary
       },
 
       "&:disabled&:hover": {
-        backgroundColor: GRAY_50,
-        color: GRAY_70
+        backgroundColor: GRAY.fifty,
+        color: GRAY.primary
       }
     },
     confirmation: {
-      backgroundColor: GREEN_70,
+      backgroundColor: GREEN.primary,
 
       "&:hover": {
-        backgroundColor: GREEN_90
+        backgroundColor: GREEN.ninety
       },
 
       "&:disabled": {
-        backgroundColor: GREEN_30,
+        backgroundColor: GREEN.thirty,
         color: WHITE
       },
 
       "&:disabled&:hover": {
-        backgroundColor: GREEN_30,
+        backgroundColor: GREEN.thirty,
         color: WHITE
       }
     },
     danger: {
-      backgroundColor: RED_50,
+      backgroundColor: RED.fifty,
 
       "&:hover": {
-        backgroundColor: RED_70
+        backgroundColor: RED.primary
       },
 
       "&:disabled": {
-        backgroundColor: RED_30,
+        backgroundColor: RED.thirty,
         color: WHITE
       },
 
       "&:disabled&:hover": {
-        backgroundColor: RED_30,
+        backgroundColor: RED.thirty,
         color: WHITE
       }
     },

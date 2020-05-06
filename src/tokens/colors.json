@@ -2,72 +2,73 @@
     "WHITE": "#FFFFFF",
     "BLACK": "#333333",
     "GRAY": {
-        "30": "#F2F2F2",
-        "50": "#D8D8D8",
-        "70": "#B4B4B4",
-        "90": "#6B6C67"
+        "ten": "",
+        "thirty": "#F2F2F2",
+        "fifty": "#D8D8D8",
+        "primary": "#B4B4B4",
+        "ninety": "#6B6C67"
     },
     "GREEN": {
-        "10": "#E7FDF1",
-        "30": "#7EAA93",
-        "50": "#009C49",
-        "70": "#006E2A",
-        "90": "#004825"
+        "ten": "#E7FDF1",
+        "thirty": "#7EAA93",
+        "fifty": "#009C49",
+        "primary": "#006E2A",
+        "ninety": "#004825"
     },
     "YELLOW": {
-        "10": "#FFF0C2",
-        "30": "#FFDC77",
-        "50": "#FCBB00",
-        "70": "#D8A000",
-        "90": "#826000"
+        "ten": "#FFF0C2",
+        "thirty": "#FFDC77",
+        "fifty": "#FCBB00",
+        "primary": "#D8A000",
+        "ninety": "#826000"
     },
     "RED": {
-        "10": "#FFD2D4",
-        "30": "#FF7F84",
-        "50": "#FF5555",
-        "70": "#BC3C3C",
-        "90": "#5E1B1B"
+        "ten": "#FFD2D4",
+        "thirty": "#FF7F84",
+        "fifty": "#FF5555",
+        "primary": "#BC3C3C",
+        "ninety": "#5E1B1B"
     },
     "BLUE": {
-        "10": "#D0E8FC",
-        "30": "#76BDF5",
-        "50": "#0085FF",
-        "70": "#0061BB",
-        "90": "#00316E" 
+        "ten": "#D0E8FC",
+        "thirty": "#76BDF5",
+        "fifty": "#0085FF",
+        "primary": "#0061BB",
+        "ninety": "#00316E" 
     },
     "PURPLE": {
-        "PURPLE_10": "#F4EFFF",
-        "PURPLE_30": "#CDA6FF",
-        "PURPLE_50": "#9263D0",
-        "PURPLE_70": "#4D346E",
-        "PURPLE_90": "#281B39"
+        "ten": "#F4EFFF",
+        "thirty": "#CDA6FF",
+        "primary": "#9263D0",
+        "seventy": "#4D346E",
+        "ninety": "#281B39"
     },
     "ORANGE": {
-        "10": "#FFE1CD",
-        "30": "#F99958",
-        "50": "#DF7126",
-        "70": "#B2591C",
-        "90": "#6B3713" 
+        "ten": "#FFE1CD",
+        "thirty": "#F99958",
+        "primary": "#DF7126",
+        "seventy": "#B2591C",
+        "ninety": "#6B3713" 
     },
     "TEAL": {
-        "10": "#DBFFF5",
-        "30": "#8FECD2",
-        "50": "#74C4AD",
-        "70": "#599685",
-        "90": "#375E53"
+        "ten": "#DBFFF5",
+        "thirty": "#8FECD2",
+        "primary": "#74C4AD",
+        "seventy": "#599685",
+        "ninety": "#375E53"
     },
     "PINK": {
-        "10": "#FFDEEF",
-        "30": "#FFA3D4",
-        "50": "#E1539E",
-        "70": "#983368",
-        "90": "#591C3C"
+        "ten": "#FFDEEF",
+        "thirty": "#FFA3D4",
+        "primary": "#E1539E",
+        "seventy": "#983368",
+        "ninety": "#591C3C"
     },
     "OLIVE": {
-        "10": "#FCFFD8",
-        "30": "#EDF390",
-        "50": "#B9BE72",
-        "70": "#63663B",
-        "90": "#454729"
+        "ten": "#FCFFD8",
+        "thirty": "#EDF390",
+        "primary": "#B9BE72",
+        "seventy": "#63663B",
+        "ninety": "#454729"
     }
 }

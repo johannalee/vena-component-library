@@ -4,16 +4,14 @@ import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import MuiTextField from "@material-ui/core/TextField";
 import {
-  BLUE_50,
-  GRAY_50,
-  GRAY_90,
-  GRAY_30,
-  RED_50,
+  BLUE,
+  GRAY,
+  RED,
   WHITE,
   BLACK
-} from "../../styles/colors";
+} from "../../tokens/colors.json";
 
-const styles = theme => {
+const styles = () => {
   return {
     listItem: {
       padding: "0 8px 0 8px",
@@ -26,7 +24,7 @@ const styles = theme => {
       padding: 0
     },
     paper: {
-      boxShadow: `0 0 0 1px ${GRAY_50}`,
+      boxShadow: `0 0 0 1px ${GRAY.fifty}`,
       borderRadius: 0
     },
     selectSelect: {
@@ -39,7 +37,7 @@ const styles = theme => {
       }
     },
     placeholder: {
-      color: GRAY_90
+      color: GRAY.ninety
     },
     formControlRoot: {
       width: "320px",
@@ -51,7 +49,7 @@ const styles = theme => {
     formControlFullWidth: {},
     inputRoot: {
       backgroundColor: WHITE,
-      border: `1px solid ${GRAY_50}`,
+      border: `1px solid ${GRAY.fifty}`,
       boxSizing: "border-box",
       color: BLACK,
       fontSize: "14px",
@@ -61,17 +59,17 @@ const styles = theme => {
         marginTop: "8px"
       },
       "&:hover": {
-        border: `1px solid ${GRAY_90}`
+        border: `1px solid ${GRAY.ninety}`
       },
       "&$inputDisabled": {
-        border: `1px solid ${GRAY_50}`,
-        backgroundColor: GRAY_30
+        border: `1px solid ${GRAY.fifty}`,
+        backgroundColor: GRAY.thirty
       },
       "&$inputError": {
-        border: `1px solid ${RED_50}`
+        border: `1px solid ${RED.fifty}`
       },
       "&$inputFocused": {
-        border: `1px solid ${BLUE_50}`
+        border: `1px solid ${BLUE.fifty}`
       }
     },
     inputDisabled: {},
@@ -79,12 +77,12 @@ const styles = theme => {
     inputFormControl: {},
     inputFocused: {},
     helperTextRoot: {
-      color: GRAY_90,
+      color: GRAY.ninety,
       fontSize: "12px",
       fontStyle: "italic",
 
       "&$helperTextError": {
-        color: RED_50
+        color: RED.fifty
       }
     },
     helperTextError: {},

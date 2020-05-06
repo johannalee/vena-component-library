@@ -4,4 +4,4 @@ export { default as Select } from "./components/Inputs/Select";
 export { default as Switch } from "./components/Switches/Switch";
 export { default as TextField } from "./components/Inputs/TextField";
 
-export * from "./styles/colors";
+export { default as ColorTokens } from "./tokens/colors.json";

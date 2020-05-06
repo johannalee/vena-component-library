@@ -3,17 +3,9 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import MuiButton from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {
-  BLUE_10,
-  BLUE_50,
-  GRAY_50,
-  GRAY_90,
-  RED_10,
-  RED_50,
-  BLACK
-} from "../../styles/colors";
+import { BLUE, GRAY, RED, BLACK } from '../../tokens/colors.json';
 
-const styles = theme => {
+const styles = () => {
   return {
     root: {
       minHeight: "36px",
@@ -28,33 +20,33 @@ const styles = theme => {
       "&:disabled": {
         cursor: "not-allowed",
         pointerEvents: "auto",
-        color: GRAY_50
+        color: GRAY.fifty
       },
 
       "&:disabled&:hover": {
-        color: GRAY_50
+        color: GRAY.fifty
       }
     },
     primary: {
-      color: BLUE_50,
+      color: BLUE.fifty,
 
       "&:hover": {
-        backgroundColor: BLUE_10
+        backgroundColor: BLUE.ten
       }
     },
     secondary: {
-      color: GRAY_90,
+      color: GRAY.ninety,
 
       "&:hover": {
         color: BLACK,
-        backgroundColor: GRAY_50
+        backgroundColor: GRAY.fifty
       }
     },
     danger: {
-      color: RED_50,
+      color: RED.fifty,
 
       "&:hover": {
-        backgroundColor: RED_10
+        backgroundColor: RED.ten
       }
     },
     icon: {
